@@ -1,0 +1,12 @@
+**/.DS_Store
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+node_modules
+dist
+analysis

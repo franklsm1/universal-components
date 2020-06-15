@@ -1,0 +1,67 @@
+{
+  "name": "universal-components",
+  "version": "1.0.0",
+  "description": "react based component library example built to be used by any website",
+  "scripts": {
+    "analysis": "rm -rf analysis && NODE_ENV=ANALYSIS rollup -c",
+    "build": "rm -rf dist && rollup -c && cp -r public dist",
+    "build:watch": "rm -rf dist && mkdir dist && cp -r public dist && watch 'rollup -c' ./lib",
+    "lint": "eslint --ext js,jsx lib",
+    "lint:fix": "eslint --ext js,jsx lib --fix",
+    "storybook": "concurrently \"NODE_ENV=LOCAL npm run build:watch\" \"start-storybook -p 9000 -s ./dist\"",
+    "build-storybook": "npm run build && STORYBOOK_ROOT_URL=https://$BUCKET.s3.amazonaws.com build-storybook -c .storybook -o docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franklsm1/universal-components.git"
+  },
+  "keywords": [
+    "react",
+    "storybook",
+    "rollup",
+    "components",
+    "library"
+  ],
+  "author": "Sean Franklin <sean@seanfranklin.info>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franklsm1/universal-components/issues"
+  },
+  "homepage": "https://github.com/franklsm1/universal-components#readme",
+  "dependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
+    "@rollup/plugin-babel": "^5.0.3",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-image": "^2.0.5",
+    "@rollup/plugin-node-resolve": "^8.0.1",
+    "@rollup/plugin-replace": "^2.3.3",
+    "aws-sdk": "^2.696.0",
+    "babel-loader": "^8.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.15.0",
+    "rollup-plugin-filesize": "^9.0.0",
+    "rollup-plugin-gzip": "^2.5.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/html": "^5.3.19",
+    "concurrently": "^5.2.0",
+    "eslint": "^7.2.0",
+    "eslint-plugin-react": "^7.20.0",
+    "husky": "^4.2.5",
+    "rollup-plugin-visualizer": "^4.0.4",
+    "watch": "^1.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
