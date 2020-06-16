@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Universal Components Example</title>
+  <script src="https://unpkg.com/react@16.11.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.11.0/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div
+      id="GreenAppBar"
+      data-color="green"
+      data-title="Green Title"
+  ></div>
+  <br/>
+
+  <div
+      id="DesertFoodTable"
+      data-table-data="[{&quot;name&quot;:&quot;Frozen yogurt&quot;,&quot;calories&quot;:159,&quot;fat&quot;:6,&quot;carbs&quot;:24,&quot;protein&quot;:4},{&quot;name&quot;:&quot;Ice cream sandwich&quot;,&quot;calories&quot;:237,&quot;fat&quot;:9,&quot;carbs&quot;:37,&quot;protein&quot;:4.3},{&quot;name&quot;:&quot;Eclair&quot;,&quot;calories&quot;:262,&quot;fat&quot;:16,&quot;carbs&quot;:24,&quot;protein&quot;:6},{&quot;name&quot;:&quot;Cupcake&quot;,&quot;calories&quot;:305,&quot;fat&quot;:3.7,&quot;carbs&quot;:67,&quot;protein&quot;:4.3},{&quot;name&quot;:&quot;Gingerbread&quot;,&quot;calories&quot;:356,&quot;fat&quot;:16,&quot;carbs&quot;:49,&quot;protein&quot;:3.9}]"
+  ></div>
+  <br/>
+
+  <div
+      id="ReactDynamicCard"
+      data-card-image="https://reactjs.org/logo-og.png"
+      data-card-header="React"
+      data-card-sub-text="My preferred JavaScript library for building user interfaces"
+      data-card-link="https://reactjs.org/"
+  ></div>
+</body>
+<footer>
+  <script
+      data-id="GreenAppBar"
+      src="https://universal-component-library.s3.amazonaws.com/CustomAppBar.js"
+  >
+  </script>
+  <script
+      data-id="DesertFoodTable"
+      src="https://universal-component-library.s3.amazonaws.com/FoodTable.js">
+  </script>
+  <script
+      data-id="ReactDynamicCard"
+      src="https://universal-component-library.s3.amazonaws.com/DynamicCard.js"
+  >
+  </script>
+</footer>
+</html>

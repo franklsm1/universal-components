@@ -9,12 +9,12 @@ const generateClassName = createGenerateClassName({
 });
 
 const widgetId = document.currentScript.dataset.id;
-delete document.currentScript.dataset.id;
+const widget = document.getElementById(widgetId);
 
 ReactDOM.render(
   (
     <StylesProvider generateClassName={generateClassName}>
-      <CustomAppBar {...document.currentScript.dataset} />
+      <CustomAppBar {...widget.dataset} />
     </StylesProvider>
   ),
   document.getElementById(widgetId),

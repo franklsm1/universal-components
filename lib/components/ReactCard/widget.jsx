@@ -9,12 +9,12 @@ const generateClassName = createGenerateClassName({
 });
 
 const widgetId = document.currentScript.dataset.id;
-delete document.currentScript.dataset.id;
+const widget = document.getElementById(widgetId);
 
 ReactDOM.render(
   (
     <StylesProvider generateClassName={generateClassName}>
-      <ReactCard {...document.currentScript.dataset} />
+      <ReactCard {...widget.dataset} />
     </StylesProvider>
   ),
   document.getElementById(widgetId),

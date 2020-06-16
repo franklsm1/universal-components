@@ -9,11 +9,10 @@ const generateClassName = createGenerateClassName({
 });
 
 const widgetId = document.currentScript.dataset.id;
-delete document.currentScript.dataset.id;
-
+const widget = document.getElementById(widgetId);
 const props = {
-  ...document.currentScript.dataset,
-  tableData: JSON.parse(document.currentScript.dataset.tableData || '[]'),
+  ...widget.dataset,
+  tableData: JSON.parse(widget.dataset.tableData || '[]'),
 };
 
 ReactDOM.render(
