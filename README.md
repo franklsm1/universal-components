@@ -1,11 +1,15 @@
 ## Universal Component Library
 
-[Storybook Live UI View](https://franklsm1.github.io/universal-components/)
+### Live docs using components:
+- [Storybook Live UI View](https://franklsm1.github.io/universal-components/)
+- [React code sandbox](https://codesandbox.io/s/brave-boyd-yssbw)
+- [Angular code sandbox](https://codesandbox.io/s/dark-sunset-9ckxb)
+- [Vue code sandbox](https://codesandbox.io/s/cool-brook-gfly0)
 
 ### Create S3 bucket
 - follow the steps in this [medium article](https://medium.com/@shamnad.p.s/how-to-create-an-s3-bucket-and-aws-access-key-id-and-secret-access-key-for-accessing-it-5653b6e54337)
 
-#### npm Commands
+### npm Commands
 - Build all components: `npm run build`
 - Create HTML reports with each components bundle size: `npm run analysis`
     - results will be in the `analysis` folder

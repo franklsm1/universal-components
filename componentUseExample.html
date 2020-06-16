@@ -29,10 +29,11 @@
   ></div>
 </body>
 <footer>
-  <script
-      data-id="GreenAppBar"
-      src="https://universal-component-library.s3.amazonaws.com/CustomAppBar.js"
-  >
+  <script>
+    const script = document.createElement('script');
+    script.setAttribute('data-id', 'GreenAppBar');
+    script.src = 'https://universal-component-library.s3.amazonaws.com/CustomAppBar.js';
+    document.body.appendChild(script);
   </script>
   <script
       data-id="DesertFoodTable"
