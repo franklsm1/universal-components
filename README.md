@@ -25,3 +25,6 @@
 
 ### Credits
 - the outline of the uploadWidgets.js script came from [this stackoverflow answer](https://stackoverflow.com/a/43663433)
+- App bar starting component snippet from [material ui's app bar docs](https://material-ui.com/components/app-bar/)
+- Card starting component snippet from [material ui's card docs](https://material-ui.com/components/cards/)
+- Table starting component snippet from [material ui's table docs](https://material-ui.com/components/tables/)
