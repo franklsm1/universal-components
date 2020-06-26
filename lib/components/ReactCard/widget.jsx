@@ -17,5 +17,5 @@ ReactDOM.render(
       <ReactCard {...widget.dataset} />
     </StylesProvider>
   ),
-  document.getElementById(widgetId),
+  widget,
 );

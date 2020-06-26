@@ -17,5 +17,5 @@ ReactDOM.render(
       <CustomAppBar {...widget.dataset} />
     </StylesProvider>
   ),
-  document.getElementById(widgetId),
+  widget,
 );

@@ -21,5 +21,5 @@ ReactDOM.render(
       <FoodTable {...props} />
     </StylesProvider>
   ),
-  document.getElementById(widgetId),
+  widget,
 );
