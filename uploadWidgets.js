@@ -18,13 +18,14 @@ const s3 = new aws.S3({
 
 const uploadWidget = (fileName) => {
   const fileContent = fs.readFileSync(builtWidgetsDir + fileName);
+  const gzipFileTypeRegex = RegExp(/\.(js|mjs|json|css|html)$/);
   const params = {
     ACL: 'public-read',
     Bucket: BUCKET,
     Key: fileName,
     Body: fileContent,
     ContentType: fileName.indexOf('.svg') >= 0 ? 'image/svg+xml' : undefined,
-    ContentEncoding: fileName.indexOf('.gz') >= 0 ? 'gzip' : undefined,
+    ContentEncoding: gzipFileTypeRegex.test(fileName) ? 'gzip' : undefined,
   };
 
   s3.putObject(params, (err) => {

@@ -34,7 +34,12 @@ export default components.map(name => ({
     'react-dom',
   ],
   plugins: [
-    gzipPlugin(),
+    // can't gzip when running locally since storybook utilizes local files without content encoding headers
+    process.env.NODE_ENV === 'LOCAL' ? null :
+      gzipPlugin({
+        // use the current extension instead of adding .gz, S3 will set content-encoding response header
+        fileName : fileName => fileName,
+      }),
     babel({ babelHelpers: 'bundled', exclude: 'node_modules/**' }),
     resolve({ extensions: ['.jsx', '.js'], preferBuiltins: false }),
     commonjs(),
