@@ -7,6 +7,7 @@ import image from '@rollup/plugin-image';
 import replace from '@rollup/plugin-replace';
 import gzipPlugin from 'rollup-plugin-gzip';
 
+// Array of component names that also map to a folder name under the "lib/components/" directory
 const components = [
   'CustomAppBar',
   'FoodTable',
@@ -14,10 +15,12 @@ const components = [
   'ReactCard',
 ];
 
+// IMAGE_ROOT is used to replace references in the src code with the actual url root when bundling
 const IMAGE_ROOT = process.env.NODE_ENV === 'LOCAL'
   ? 'http://localhost:9000/public/images'
   : `https://${process.env.BUCKET}.s3.amazonaws.com/public/images`;
 
+// rollup can take in multiple inputs and iterate over them with the same config to produce multiple bundles
 export default components.map(name => ({
   input: `lib/components/${name}/widget.jsx`,
   output: {
@@ -43,12 +46,14 @@ export default components.map(name => ({
     babel({ babelHelpers: 'bundled', exclude: 'node_modules/**' }),
     resolve({ extensions: ['.jsx', '.js'], preferBuiltins: false }),
     commonjs(),
-    filesize(),
+    filesize(), // prints the bundled size of each file in the console
     image(),
+    // the replace plugin is required to set React in production mode when bundling
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
       IMAGE_ROOT,
     }),
+    // the visualizer produces bundle size analysis reports for each bundled component
     process.env.NODE_ENV === 'ANALYSIS' && visualizer({ filename: `analysis/${name}.stats.html` }),
   ],
 }));
